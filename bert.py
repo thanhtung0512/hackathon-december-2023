@@ -3,10 +3,10 @@ from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_distances
 
 # Load the CSV file into a pandas DataFrame
-df = pd.read_csv("laptops.csv")
+df = pd.read_csv("laptops-hp-240.csv")
 
 # Combine the relevant columns into a single text column
-df["text"] = df["Tên sản phẩm"] + " " + df["Bộ VXL"] + " " + df["Bộ nhớ RAM"] + " " + df["Ổ cứng"] + " " + df["Card màn hình"]
+df["text"] = df.apply(lambda row: ' '.join(row.dropna().astype(str)), axis=1)
 
 # Initialize the BERT-based sentence transformer
 model = SentenceTransformer("bert-base-nli-mean-tokens")
@@ -35,7 +35,7 @@ def retrieve_products_bert(query, top_k=7):
 
 # Example usage
 query = "Máy tính giá khoảng 15 triệu"
-relevant_laptops = retrieve_products_bert(query, top_k=7)
+relevant_laptops = retrieve_products_bert(query, top_k=20)
 
 print("Relevant Laptops:")
 print(relevant_laptops)

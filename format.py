@@ -28,7 +28,7 @@ def get_content(delimeter_length):
 laptop_entries = raw_data.split("\n\n")
 # print(laptop_entries)
 # Create a CSV file and write header
-csv_file_path = "laptops-hp-workstation.csv"
+csv_file_path = "laptops-acer-aspire.csv"
 
 
 def get_name(delimeter,raw_data):

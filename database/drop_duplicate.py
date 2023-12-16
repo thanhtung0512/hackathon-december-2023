@@ -11,8 +11,8 @@ def remove_duplicates(input_file, output_file):
     df.to_csv(output_file, index=False)
 
 # Specify the input and output file paths
-input_file_path = 'db_hp.csv'
-output_file_path = 'db_hp_drop_duplicate.csv'
+input_file_path = 'database_official.csv'
+output_file_path = 'database_official_postprocessed.csv'
 
 # Call the function to remove duplicates
 remove_duplicates(input_file_path, output_file_path)
