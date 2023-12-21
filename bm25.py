@@ -7,7 +7,7 @@ from rank_bm25 import BM25Okapi
 import re
 
 # Load the CSV file into a pandas DataFrame
-df = pd.read_csv("laptops.csv")
+df = pd.read_csv("api/database_official_postprocessed_final.csv")
 
 # Combine all relevant columns into a single text column
 df["text"] = df.apply(lambda row: ' '.join(row.dropna().astype(str)), axis=1)
